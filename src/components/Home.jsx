@@ -8,12 +8,12 @@ const Home = () => {
     const[loading,setloading]=useState("");
     const[load,setload]=useState(false);
     const[error,seterror]=useState("");
-    const API_KEY="a32d4f57cef043d6ac4405c0af44119c";
+    const API_KEY="8844e36ff231195c46574fc1ffd59c89";
 
     const fetchdata=async(query="footbal")=>{
     
         try{
-        const response=await fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=${API_KEY}`)  
+        const response=await fetch(`https://gnews.io/api/v4/search?q=${query}&apikey=8844e36ff231195c46574fc1ffd59c89`)  
         const result=await response.json();
         console.log(result.articles);
         setdata(result.articles);
@@ -98,7 +98,7 @@ const Home = () => {
    
 {loading && <h3 className='flex items-center justify-center mt-60'>{loading}</h3>}
      
-      <Card items={data}/>
+   <Card items={data}/>
     </div>
   )
 }
