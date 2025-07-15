@@ -3,7 +3,7 @@ import React from 'react'
 const Card = ({items}) => {
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4'>
-      {items.map((item,index)=>(
+      {items?.map((item,index)=>(
        <div key={index} className="flex flex-col bg-white rounded-xl shadow-md overflow-hidden border hover:shadow-lg transition duration-300">
         
        <img src={item.urlToImage} className='w-full h-25 object-cover'/>
