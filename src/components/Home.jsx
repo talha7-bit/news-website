@@ -79,7 +79,7 @@ const Home = () => {
     ]
   return (
     <div>
-    <form onSubmit={handlesearch}>
+    <form onSubmit={handlesearch} className='mt-3'>
       <input type='text' placeholder='search any news' value={search} onChange={(e)=>setsearch(e.target.value)}
       className='px-2 py-1 border rounded mx-1 sm:mx-3'
       />
