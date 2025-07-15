@@ -15,6 +15,8 @@ const Home = () => {
         try{
         const response=await fetch(`https://gnews.io/api/v4/search?q=${query}&apikey=8844e36ff231195c46574fc1ffd59c89`)  
         const result=await response.json();
+      
+        
         console.log(result.articles);
         setdata(result.articles);
 
@@ -49,9 +51,10 @@ const Home = () => {
     }else{
       setload(true)
      
-      fetchdata(search).finally(()=>{
-        setload(false)
-      })
+     fetchdata(search).finally(()=>{
+      setload(false);
+     })
+    
       }
      
     }
@@ -78,16 +81,16 @@ const Home = () => {
     <div>
     <form onSubmit={handlesearch}>
       <input type='text' placeholder='search any news' value={search} onChange={(e)=>setsearch(e.target.value)}
-      className='px-4 py-1 border rounded mx-3'
+      className='px-2 py-1 border rounded mx-1 sm:mx-3'
       />
-      <button className='px-4 py-1 bg-blue-500 text-white rounded mx-1' type='submit'>{load ? (<LoaderIcon className='w-4 h-4 animate-spin'/>):("Search")}</button>
+      <button className='px-2 py-1 bg-blue-500 text-white rounded mx-1' type='submit'>{load ? (<LoaderIcon className='w-4 h-4 animate-spin'/>):("Search")}</button>
     </form>
     <div className='flex flex-wrap justify-center mt-3 gap-2'>
      {category.map(cat=>(
       <button  
       key={cat}
       onClick={()=>handlecategory(cat)}
-     className='bg-gray-800 text-white px-3 py-1 rounded hover:bg-gray-700 transition text-sm'
+     className='bg-gray-800 text-white px-3 py-1 cursor-pointer rounded hover:bg-gray-700 transition text-sm'
       >{cat.charAt(0).toUpperCase()+cat.slice(1)}</button>
      ))}
     
